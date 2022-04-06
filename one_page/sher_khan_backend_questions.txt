@@ -1,0 +1,44 @@
+/**  For backend, the question does not mention about using PHP framework such as Codeignitor or laravel **/
+
+1) The table could could look something like: 
+
+create table User (
+user_id int,  // user_Id could be auto_increment/ generated
+firstName varchar (50), 
+lastName varchar (50),
+phoneNumber int
+);
+
+insert into User values ("sher", "khan", 12345112); 
+
+/* doesn't mention about framework for backend so I am using CodeIgniter solution */ 
+UserModel is a model in codeignitor which is built in PHP when he want to insert the data into the user table in database he uses UserModel->insert([all data]);
+in this model the system sends all the values to the user table in the DB. where table for user is already exists.
+
+Table for vehicle model could look something like
+create table Vehicle ( 
+ vehicle_id, int,  // auto increment or generated
+ name varchar (50),  
+ year int, 
+ make varchar(15), 
+ model int
+); 
+
+insert into Vehicle values (1, "honda", 2000, "something", "2001"); 
+
+/* CodeIgniter solution */ 
+VehicleModel is a custom created model which can be created in Java or php. when the user inputs his attributes for the information then we apply the Vehiclemodel->insert([all data]);
+which inserts all the attributes to its specified table in DB which is vehicle table and all the information stores there.
+
+/* 
+3) if we dont want to add more columns or attributes in the table, we can do simple trick but that is only one column will have multiple columns data that he want to add more.
+let's say we have only one column named DATA so we want to add 2 new column's data in the same table so what we can do is to encode the data and store in the DATA column and when we want to fetch and show it we will decode the data from DATA column.
+for example we want to add color and size and we have only one column we can do the following.
+
+$data = [
+          'color' :'red',     
+          'size' :'small',     
+];
+
+DataModel->insert(encodeOFDATA($data));
+
